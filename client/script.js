@@ -345,7 +345,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://code-with-semo.vercel.app/', {
+    const response = await fetch('https://ask-semo.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
