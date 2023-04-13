@@ -345,15 +345,33 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://ask-semo.onrender.com', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            prompt: data.get('prompt')
-        })
-    })
+    // const response = await fetch('https://ask-semo.onrender.com', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //         prompt: data.get('prompt')
+    //     })
+    // })
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          // handle the response data
+        } else {
+          // handle errors
+        }
+      }
+    };
+    
+    xhr.open('POST', 'https://ask-semo.onrender.com');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+      prompt: data.get('prompt')
+    }));  
 
     clearInterval(loadInterval)
     messageDiv.innerHTML = " "
