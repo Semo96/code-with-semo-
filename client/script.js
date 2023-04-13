@@ -217,7 +217,7 @@ const handleSubmit = async (e) => {
 
   // Fetch the data from the server -> bot's response
   try {
-    let response = await fetch('https://ask-semo.onrender.com', {
+    const response = await fetch('https://ask-semo.onrender.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
