@@ -345,16 +345,15 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch("https://ask-semo.onrender.com/", {
+    const response = await fetch("https://ask-semo.onrender.com", {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+           prompt: data.get('prompt')
         })
     })
- 
 
     clearInterval(loadInterval)
     messageDiv.innerHTML = " "
